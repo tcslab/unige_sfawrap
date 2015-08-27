@@ -34,7 +34,7 @@ class unigetestbedShell():
 			return result
 
         def GetTestbedInfo(self):
-                return {'name': 'unigetestbed', 'latitude': 461763879, 'longitude': 61399586, 'domain':'unigetestbed-testbed.org'}
+                return {'name': 'unigetestbed', 'latitude': 46.1763879, 'longitude': 61.399586, 'domain':'129.194.70.52:8111/ero2proxy'}
 
         def GetNodes(self,filter={}):
                 nodes_list = []
