@@ -50,6 +50,7 @@ class unigetestbedShell():
                                 'port': resource["port"],
                                 'type': resource["type"],
                                 'protocol': resource["protocol"],
+                                'uri': resource["uri"].replace("\\",""),
                                 'hardware': resource["hardware"],
                                 'node_id': resource["node_id"],
                                 'resources': [{'name': resource["resourcesnode"]["name"],
