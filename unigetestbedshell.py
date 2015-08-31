@@ -46,7 +46,8 @@ class unigetestbedShell():
                         resource = val["resources"][0]
 
                         node = {'hostname': resource["hostname"],
-                                'ip': resource["ip"],
+                                # 'ip': resource["ip"],
+                                'ip': resource["uri"].replace("\\",""),
                                 'port': resource["port"],
                                 'type': resource["type"],
                                 'protocol': resource["protocol"],
