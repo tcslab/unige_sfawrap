@@ -38,7 +38,7 @@ class unigetestbedShell():
 
         def GetNodes(self,filter={}):
                 nodes_list = []
-                response = requests.get('http://129.194.70.52:8111/ero2proxy/service/type/xml_rspec')
+                response = requests.get('http://129.194.70.52:8111/ero2proxy/service')
                 data = response.json()
                 nodes = data["services"]
 
