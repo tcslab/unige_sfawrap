@@ -60,6 +60,43 @@ class unigetestbedShell():
                                     'data_type': resource["resourcesnode"]["data_type"],
                                     'type': resource["resourcesnode"]["type"]}]}
                         nodes_list.append(node)
+                        
+                        resource = val["resources"][1]
+
+                        node2 = {'hostname': resource["hostname"],
+                                # 'ip': resource["ip"],
+                                'ip': resource["uri"].replace("\\",""),
+                                'port': resource["port"],
+                                'type': resource["type"],
+                                'protocol': resource["protocol"],
+                                'uri': resource["uri"].replace("\\",""),
+                                'hardware': resource["hardware"],
+                                'node_id': resource["node_id"],
+                                'resources': [{'name': resource["resourcesnode"]["name"],
+                                    'path': resource["resourcesnode"]["path"],
+                                    'unit': resource["resourcesnode"]["unit"],
+                                    'data_type': resource["resourcesnode"]["data_type"],
+                                    'type': resource["resourcesnode"]["type"]}]}
+                        nodes_list.append(node2)
+                        
+                        resource = val["resources"][2]
+
+                        node3 = {'hostname': resource["hostname"],
+                                # 'ip': resource["ip"],
+                                'ip': resource["uri"].replace("\\",""),
+                                'port': resource["port"],
+                                'type': resource["type"],
+                                'protocol': resource["protocol"],
+                                'uri': resource["uri"].replace("\\",""),
+                                'hardware': resource["hardware"],
+                                'node_id': resource["node_id"],
+                                'resources': [{'name': resource["resourcesnode"]["name"],
+                                    'path': resource["resourcesnode"]["path"],
+                                    'unit': resource["resourcesnode"]["unit"],
+                                    'data_type': resource["resourcesnode"]["data_type"],
+                                    'type': resource["resourcesnode"]["type"]}]}
+                        nodes_list.append(node3)
+                        
 
 		result = []
 		result.extend(nodes_list)
