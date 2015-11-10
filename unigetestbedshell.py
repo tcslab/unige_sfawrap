@@ -43,26 +43,22 @@ class unigetestbedShell():
                 nodes = data["services"]
 
                 for idx, val in enumerate(nodes):
-		        resource = val["resources"][0]
-		        node = {'hostname': resource["hostname"],
-		                                # 'ip': resource["ip"],
-		                                'ip': resource["uri"].replace("\\",""),
-		                                'port': resource["port"],
-		                                'type': resource["type"],
-		                                'protocol': resource["protocol"],
-		                                'uri': resource["uri"].replace("\\",""),
-		                                'hardware': resource["hardware"],
-		                                'node_id': resource["node_id"], 'resources' : [{'resourcenode': None}]}
-		        resourceval = []
-		        for i in range(0,len(val["resources"])):
-		                        resource = val["resources"][i]
-		                        resourceval.append({'name': resource["resourcesnode"]["name"],
-		                                    'path': resource["resourcesnode"]["path"],
-		                                    'unit': resource["resourcesnode"]["unit"],
-		                                    'data_type': resource["resourcesnode"]["data_type"],
-		                                    'type': resource["resourcesnode"]["type"]})
-		        node.update({'resources': [{'resourcenode': resourceval}]})
-		        nodes_list.append(node)
+		                resource = val["resources"][0]
+			        node = {'hostname': resource["hostname"],
+			                                # 'ip': resource["ip"],
+			                                'ip': resource["uri"].replace("\\",""),
+			                                'port': resource["port"],
+			                                'type': resource["type"],
+			                                'protocol': resource["protocol"],
+			                                'uri': resource["uri"].replace("\\",""),
+			                                'hardware': resource["hardware"],
+			                                'node_id': resource["node_id"],
+			                                'resources': [{'name': resource["resourcesnode"]["name"],
+			                                    'path': resource["resourcesnode"]["path"],
+			                                    'unit': resource["resourcesnode"]["unit"],
+			                                    'data_type': resource["resourcesnode"]["data_type"],
+			                                    'type': resource["resourcesnode"]["type"]}]}
+			        nodes_list.append(node)
 		result = []
 		result.extend(nodes_list)
 		if 'node_ids' in filter:
