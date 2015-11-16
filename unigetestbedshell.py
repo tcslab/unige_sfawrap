@@ -64,7 +64,6 @@ class unigetestbedShell():
 		                                    'type': resource["resourcesnode"]["type"]})
 		        node.update({'resources': resourceval})
 		        nodes_list.append(node)
-		result.extend(nodes_list)
 		
 		#Virtual Nodes
 		
@@ -92,14 +91,13 @@ class unigetestbedShell():
 		                                    'type': resource["resourcesnode"]["type"]})
 		        virt_node.update({'resources': resourceval})
 		        nodes_list.append(virt_node)
-		result.extend(nodes_list)
-		
-		if 'node_ids' in filter:
-			for node in nodes_list:				
-				if node['node_id'] not in filter['node_ids']:
-					result.remove(node)
-				
-                return result
+	
+	result.extend(nodes_list)
+	if 'node_ids' in filter:
+		for node in nodes_list:				
+			if node['node_id'] not in filter['node_ids']:
+				result.remove(node)
+			return result
 
         def GetSlices(self,filter={}):
 		logger.info("GETSlices")
