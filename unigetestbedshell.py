@@ -68,29 +68,30 @@ class unigetestbedShell():
 		#Virtual Nodes
 		
 		response2 = requests.get('http://129.194.71.196:8111/ero2proxy/service')
-		data2 = response2.json()
-		virt_nodes = data2["services"]
-		for idx, val in enumerate(virt_nodes):
-		        resource = val["resources"][0]
-		        virt_node = {'hostname': resource["hostname"],
-		                                # 'ip': resource["ip"],
-		                                'ip': "129.194.71.196",
-		                                'port': resource["port"],
-		                                'type': resource["type"],
-		                                'protocol': resource["protocol"],
-		                                'uri': "129.194.71.196",
-		                                'hardware': resource["hardware"],
-		                                'node_id': resource["node_id"], 'resources' : None}
-		        resourceval = []
-		        for i in range(0,len(val["resources"])):
-		                        resource = val["resources"][i]
-		                        resourceval.append({'name': resource["resourcesnode"]["name"],
-		                                    'path': resource["resourcesnode"]["path"],
-		                                    'unit': resource["resourcesnode"]["unit"],
-		                                    'data_type': resource["resourcesnode"]["data_type"],
-		                                    'type': resource["resourcesnode"]["type"]})
-		        virt_node.update({'resources': resourceval})
-		        nodes_list.append(virt_node)
+		if response2.status_code == 200 :
+			data2 = response2.json()
+			virt_nodes = data2["services"]
+			for idx, val in enumerate(virt_nodes):
+			        resource = val["resources"][0]
+			        virt_node = {'hostname': resource["hostname"],
+			                                # 'ip': resource["ip"],
+			                                'ip': "129.194.71.196",
+			                                'port': resource["port"],
+			                                'type': resource["type"],
+			                                'protocol': resource["protocol"],
+			                                'uri': "129.194.71.196",
+			                                'hardware': resource["hardware"],
+			                                'node_id': resource["node_id"], 'resources' : None}
+			        resourceval = []
+			        for i in range(0,len(val["resources"])):
+			                        resource = val["resources"][i]
+			                        resourceval.append({'name': resource["resourcesnode"]["name"],
+			                                    'path': resource["resourcesnode"]["path"],
+			                                    'unit': resource["resourcesnode"]["unit"],
+			                                    'data_type': resource["resourcesnode"]["data_type"],
+			                                    'type': resource["resourcesnode"]["type"]})
+			        virt_node.update({'resources': resourceval})
+			        nodes_list.append(virt_node)
 	
 		result.extend(nodes_list)
 		if 'node_ids' in filter:
